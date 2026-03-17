@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malavika Lakireddy — Global Product & AI Executive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7C3AED;
+      --purple-light: #A78BFA;
+      --pink: #EC4899;
+      --pink-light: #F9A8D4;
+      --dark: #0F0720;
+      --dark2: #1A0A35;
+      --card: #1E0D3E;
+      --card2: #16082E;
+      --text: #F3F0FF;
+      --muted: #C4B5FD;
+      --accent: #FFD700;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 7, 32, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, var(--purple-light), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--pink-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(236,72,153,0.2) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 10% 60%, rgba(124,58,237,0.15) 0%, transparent 60%);
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: float 8s ease-in-out infinite;
+    }
+    .orb1 { width: 400px; height: 400px; background: rgba(124,58,237,0.25); top: -100px; left: -100px; }
+    .orb2 { width: 300px; height: 300px; background: rgba(236,72,153,0.2); bottom: -50px; right: -50px; animation-delay: -4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(124,58,237,0.25);
+      border: 1px solid rgba(124,58,237,0.5);
+      color: var(--purple-light);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 0%, var(--purple-light) 40%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; letter-spacing: 0.05em; }
+
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 2rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: white;
+      box-shadow: 0 0 30px rgba(124,58,237,0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(124,58,237,0.6);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--purple-light);
+      border: 1.5px solid rgba(124,58,237,0.5);
+    }
+    .btn-outline:hover {
+      background: rgba(124,58,237,0.1);
+      border-color: var(--purple-light);
+      transform: translateY(-2px);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 2rem; position: relative; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(236,72,153,0.15);
+      border: 1px solid rgba(236,72,153,0.35);
+      color: var(--pink-light);
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 0%, var(--purple-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), rgba(236,72,153,0.4), transparent);
+      margin: 0;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .exp-card {
+      background: var(--card);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--purple), var(--pink));
+      border-radius: 4px 0 0 4px;
+    }
+
+    .exp-card:hover {
+      border-color: rgba(124,58,237,0.5);
+      transform: translateX(4px);
+      box-shadow: -4px 0 30px rgba(124,58,237,0.2);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-company {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .exp-role {
+      font-size: 0.9rem;
+      color: var(--purple-light);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-date {
+      background: rgba(124,58,237,0.2);
+      color: var(--purple-light);
+      padding: 0.2rem 0.8rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.9rem;
+      color: #D4C5F9;
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--pink);
+    }
+
+    .impact-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(236,72,153,0.15));
+      border: 1px solid rgba(255,215,0,0.3);
+      color: var(--accent);
+      padding: 0.15rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* ── SKILLS ── */
+    .skills-section { background: var(--dark2); }
+
+    .skills-group { margin-bottom: 2.5rem; }
+
+    .skills-group-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--pink-light);
+      margin-bottom: 1rem;
+    }
+
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skill-chip {
+      padding: 0.45rem 1rem;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .skill-chip:hover { transform: translateY(-2px); filter: brightness(1.2); }
+
+    .chip-purple { background: rgba(124,58,237,0.2); border: 1px solid rgba(124,58,237,0.4); color: var(--purple-light); }
+    .chip-pink { background: rgba(236,72,153,0.2); border: 1px solid rgba(236,72,153,0.4); color: var(--pink-light); }
+    .chip-blue { background: rgba(14,165,233,0.15); border: 1px solid rgba(14,165,233,0.3); color: #7DD3FC; }
+    .chip-green { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #6EE7B7; }
+    .chip-gold { background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); color: var(--accent); }
+
+    /* ── IMPACT NUMBERS ── */
+    .impact-section {
+      background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(236,72,153,0.08));
+      border-top: 1px solid rgba(124,58,237,0.2);
+      border-bottom: 1px solid rgba(124,58,237,0.2);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .impact-item { padding: 1.5rem; }
+
+    .impact-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .impact-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      background: var(--card2);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      transition: all 0.3s;
+    }
+
+    .edu-card:hover {
+      border-color: rgba(236,72,153,0.4);
+      box-shadow: 0 8px 40px rgba(236,72,153,0.1);
+      transform: translateY(-4px);
+    }
+
+    .edu-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .edu-degree {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.4rem;
+    }
+
+    .edu-inst {
+      font-size: 0.88rem;
+      color: var(--purple-light);
+      margin-bottom: 0.6rem;
+    }
+
+    .edu-detail {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ── THOUGHT LEADERSHIP ── */
+    .tl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tl-card {
+      background: var(--card);
+      border: 1px solid rgba(236,72,153,0.2);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .tl-card:hover {
+      border-color: rgba(236,72,153,0.5);
+      box-shadow: 0 8px 40px rgba(236,72,153,0.15);
+      transform: translateY(-4px);
+    }
+
+    .tl-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .tl-title { font-weight: 700; color: white; margin-bottom: 0.5rem; font-size: 1rem; }
+    .tl-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(236,72,153,0.1));
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--card);
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .contact-card:hover {
+      border-color: var(--purple);
+      box-shadow: 0 0 30px rgba(124,58,237,0.25);
+      transform: translateY(-3px);
+    }
+
+    .contact-icon { font-size: 1.4rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      border-top: 1px solid rgba(124,58,237,0.15);
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem; }
+      .nav-links { display: none; }
+      .hero-stats { gap: 1.5rem; }
+      .exp-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Malavika Lakireddy</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-bg"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">⚡ Global Product &amp; AI Executive</div>
+    <h1>Malavika<br>Lakireddy</h1>
+    <p class="hero-subtitle">
+      GenAI-Led Growth · Platform Scale · Enterprise Transformation<br>
+      20+ years building AI-powered platforms that scale to billions — from vision to execution.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$100M+</div>
+        <div class="stat-label">Cost Savings Delivered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$10B+</div>
+        <div class="stat-label">Gross Bookings Unlocked</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">70+</div>
+        <div class="stat-label">Countries Served</div>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="https://www.linkedin.com/in/malareddy/" target="_blank" class="btn btn-primary">
+        🔗 Connect on LinkedIn
+      </a>
+      <a href="https://brandvoca.lovable.app" target="_blank" class="btn btn-outline">
+        🌐 Visit Portfolio
+      </a>
+      <a href="mailto:malavika.lakireddy@gmail.com" class="btn btn-outline">
+        ✉️ Get in Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- IMPACT NUMBERS -->
+<section class="impact-section">
+  <div class="container">
+    <div class="impact-grid">
+      <div class="impact-item fade-up">
+        <div class="impact-num">1B+</div>
+        <div class="impact-label">Annual transactions powered at Uber</div>
+      </div>
+      <div class="impact-item fade-up">
+        <div class="impact-num">95%</div>
+        <div class="impact-label">Reduction in fraud, abuse &amp; account compromise</div>
+      </div>
+      <div class="impact-item fade-up">
+        <div class="impact-num">10×</div>
+        <div class="impact-label">Growth in 2 years at Zeotap</div>
+      </div>
+      <div class="impact-item fade-up">
+        <div class="impact-num">350%</div>
+        <div class="impact-label">Revenue growth at Bewgle</div>
+      </div>
+      <div class="impact-item fade-up">
+        <div class="impact-num">200+</div>
+        <div class="impact-label">Cross-functional team members led</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-tag">Career Journey</div>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-desc">20+ years of building, scaling, and transforming products across enterprise, SaaS, and AI platforms globally.</p>
+
+    <div class="exp-grid">
+
+      <!-- Uber -->
+      <div class="exp-card fade-up">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">🔵 Uber Inc.</div>
+            <div class="exp-role">Global Director, Product Management · Bangalore</div>
+          </div>
+          <div class="exp-date">Apr 2024 – Present</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Own global product strategy for CX, Support &amp; Autonomous Operations — <span class="impact-badge">1B+ annual transactions</span> across 20+ products, 70+ countries, 50+ languages</li>
+          <li>Led GenAI &amp; Agentic AI transformation delivering <span class="impact-badge">$100M+ cost savings</span></li>
+          <li>Architecting Model Context Protocol (MCP) platform strategy for Uber-wide Agentic AI APIs</li>
+          <li>Unlocked <span class="impact-badge">$10B+ in Gross Bookings</span> through enterprise-grade configurability</li>
+          <li>Achieved <span class="impact-badge">95% reduction in fraud &amp; abuse</span> with responsible AI guardrails</li>
+          <li>Built &amp; leads 15-member global product team + oversight of 200+ cross-functional members</li>
+          <li>India Product Leadership &amp; Innovation Lead — driving cross-LOB collaboration</li>
+        </ul>
+      </div>
+
+      <!-- Zeotap -->
+      <div class="exp-card fade-up">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">🟣 Zeotap</div>
+            <div class="exp-role">VP, Product Management · Bangalore</div>
+          </div>
+          <div class="exp-date">Jun 2021 – Apr 2024</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Drove <span class="impact-badge">$50M ARR</span> and <span class="impact-badge">10× growth in 2 years</span> for AI-driven Customer Data &amp; Audience platform</li>
+          <li>Architected end-to-end cloud platform strategy — data ingestion, identity resolution, analytics, segmentation &amp; activation</li>
+          <li>Ensured compliance with GDPR, HIPAA, TISAX, EU AI Act across 100+ enterprise clients in EU, Middle East &amp; APAC</li>
+          <li>Shifted pricing from SaaS seat-based to usage-based — creating <span class="impact-badge">5× upsell opportunity</span></li>
+          <li>Forged strategic partnerships with Google Cloud, AWS, Microsoft Azure &amp; major MarTech platforms</li>
+          <li>Represented Zeotap in Forrester, Gartner &amp; CDPI analyst engagements</li>
+        </ul>
+      </div>
+
+      <!-- Bewgle -->
+      <div class="exp-card fade-up">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">🟠 Bewgle <span style="font-size:0.8rem;color:var(--muted);font-weight:400;">(Acquired by AccelData)</span></div>
+            <div class="exp-role">VP, Product, Partnerships &amp; Marketing · Bangalore</div>
+          </div>
+          <div class="exp-date">2019 – 2021</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Drove <span class="impact-badge">350% revenue growth</span> and scaled to <span class="impact-badge">1,000+ brand adoptions</span> with AI/NLP omni-channel platform</li>
+          <li>Defined monetization strategy — usage-based pricing increased conversion by <span class="impact-badge">22%</span></li>
+          <li>Led product partnerships with Shopify, WooCommerce, Zoho, Amazon for capability bundling &amp; distribution</li>
+          <li>Represented company at VC pitches, industry forums, and strategic partner summits</li>
+        </ul>
+      </div>
+
+      <!-- AT&T -->
+      <div class="exp-card fade-up">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">🔷 AT&amp;T / Thryv</div>
+            <div class="exp-role">Lead Product Manager · Bay Area, CA</div>
+          </div>
+          <div class="exp-date">2014 – 2018</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Directed product strategy for AT&amp;T's local search advertising platform generating <span class="impact-badge">$350M annual revenue</span></li>
+          <li>Increased native fill rates by <span class="impact-badge">150%</span> and expanded inventory by <span class="impact-badge">60%+</span> via publisher partnerships</li>
+          <li>Built scalable analytics &amp; experimentation infrastructure supporting 10,000+ advertisers</li>
+        </ul>
+      </div>
+
+      <!-- Early Career -->
+      <div class="exp-card fade-up">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">🔹 TiVo · 24-7.ai · Fidelity · Y Combinator Startups</div>
+            <div class="exp-role">Senior Product Roles · Bay Area &amp; Boston</div>
+          </div>
+          <div class="exp-date">2004 – 2014</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Built enterprise CX &amp; analytics platforms processing <span class="impact-badge">100M+ daily transactions</span></li>
+          <li>Designed wealth management &amp; trading platforms handling <span class="impact-badge">$1T+ in transactional value</span></li>
+          <li>NLP-powered personalization engines boosted eCommerce order value by <span class="impact-badge">24%</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="container">
+    <div class="section-tag">Core Competencies</div>
+    <h2 class="section-title">Skills &amp; Expertise</h2>
+
+    <div class="skills-group fade-up">
+      <div class="skills-group-title">🤖 AI &amp; Emerging Technology</div>
+      <div class="skills-wrap">
+        <span class="skill-chip chip-pink">Generative AI (GenAI)</span>
+        <span class="skill-chip chip-pink">Agentic AI</span>
+        <span class="skill-chip chip-pink">Model Context Protocol (MCP)</span>
+        <span class="skill-chip chip-pink">LLMs</span>
+        <span class="skill-chip chip-pink">RAG &amp; Evals</span>
+        <span class="skill-chip chip-pink">NLP &amp; Voice AI</span>
+        <span class="skill-chip chip-pink">Visual AI</span>
+        <span class="skill-chip chip-pink">ML Strategy</span>
+        <span class="skill-chip chip-pink">Responsible AI &amp; Guardrails</span>
+        <span class="skill-chip chip-pink">Autonomous Agents</span>
+      </div>
+    </div>
+
+    <div class="skills-group fade-up">
+      <div class="skills-group-title">🚀 Product &amp; Strategy</div>
+      <div class="skills-wrap">
+        <span class="skill-chip chip-purple">Product Strategy &amp; Vision</span>
+        <span class="skill-chip chip-purple">Platform Product Management</span>
+        <span class="skill-chip chip-purple">Strategic Roadmap Execution</span>
+        <span class="skill-chip chip-purple">GTM Strategy</span>
+        <span class="skill-chip chip-purple">Monetization &amp; Pricing</span>
+        <span class="skill-chip chip-purple">0-to-1 Product Building</span>
+        <span class="skill-chip chip-purple">Portfolio Governance</span>
+        <span class="skill-chip chip-purple">Executive Stakeholder Management</span>
+      </div>
+    </div>
+
+    <div class="skills-group fade-up">
+      <div class="skills-group-title">☁️ Platform &amp; Cloud</div>
+      <div class="skills-wrap">
+        <span class="skill-chip chip-blue">Cloud Platform Strategy</span>
+        <span class="skill-chip chip-blue">Data Platform Architecture</span>
+        <span class="skill-chip chip-blue">Identity &amp; Security</span>
+        <span class="skill-chip chip-blue">Trust &amp; Safety</span>
+        <span class="skill-chip chip-blue">CX &amp; Support Platforms</span>
+        <span class="skill-chip chip-blue">Privacy by Design</span>
+        <span class="skill-chip chip-blue">Enterprise API Platforms</span>
+      </div>
+    </div>
+
+    <div class="skills-group fade-up">
+      <div class="skills-group-title">🌍 Compliance &amp; Governance</div>
+      <div class="skills-wrap">
+        <span class="skill-chip chip-green">GDPR</span>
+        <span class="skill-chip chip-green">EU AI Act</span>
+        <span class="skill-chip chip-green">HIPAA</span>
+        <span class="skill-chip chip-green">TISAX</span>
+        <span class="skill-chip chip-green">ISO Standards</span>
+        <span class="skill-chip chip-green">DPDU</span>
+      </div>
+    </div>
+
+    <div class="skills-group fade-up">
+      <div class="skills-group-title">🏭 Domain Expertise</div>
+      <div class="skills-wrap">
+        <span class="skill-chip chip-gold">Mobility Platforms</span>
+        <span class="skill-chip chip-gold">Enterprise SaaS</span>
+        <span class="skill-chip chip-gold">AI &amp; Data Platforms</span>
+        <span class="skill-chip chip-gold">eCommerce &amp; Retail</span>
+        <span class="skill-chip chip-gold">FinTech &amp; Wealth Management</span>
+        <span class="skill-chip chip-gold">MarTech &amp; AdTech</span>
+        <span class="skill-chip chip-gold">Autonomous &amp; AV Systems</span>
+        <span class="skill-chip chip-gold">Multi-party Marketplaces</span>
+        <span class="skill-chip chip-gold">Healthcare &amp; Insurance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THOUGHT LEADERSHIP -->
+<section>
+  <div class="container">
+    <div class="section-tag">Community &amp; Influence</div>
+    <h2 class="section-title">Thought Leadership</h2>
+    <p class="section-desc">Recognized contributor on AI, GenAI, and Product Leadership across global forums.</p>
+
+    <div class="tl-grid">
+      <div class="tl-card fade-up">
+        <div class="tl-icon">🎙️</div>
+        <div class="tl-title">Global Speaker</div>
+        <div class="tl-desc">Google · NASSCOM · Women in Product · LinkedIn Global Forums</div>
+      </div>
+      <div class="tl-card fade-up">
+        <div class="tl-icon">🤝</div>
+        <div class="tl-title">Venture Advisor</div>
+        <div class="tl-desc">Trusted executive partner to global startups and Venture ecosystems shaping next-gen AI product strategy</div>
+      </div>
+      <div class="tl-card fade-up">
+        <div class="tl-icon">📊</div>
+        <div class="tl-title">Analyst Engagement</div>
+        <div class="tl-desc">Forrester · Gartner · CDPI — establishing market thought leadership in AI-driven platforms</div>
+      </div>
+      <div class="tl-card fade-up">
+        <div class="tl-icon">🇮🇳</div>
+        <div class="tl-title">India Innovation Lead</div>
+        <div class="tl-desc">Driving cross-LOB collaboration, platform reuse, and strategic innovation at Uber India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-tag">Academic Background</div>
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-grid">
+      <div class="edu-card fade-up">
+        <div class="edu-icon">📊</div>
+        <div class="edu-degree">Advanced Program in Computational Data Science</div>
+        <div class="edu-inst">Indian Institute of Science (IISc), Bangalore</div>
+        <div class="edu-detail">2022 · Grade: A+</div>
+      </div>
+      <div class="edu-card fade-up">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree">MBA — Marketing &amp; Business Strategy</div>
+        <div class="edu-inst">University of Michigan, Stephen M. Ross School of Business</div>
+        <div class="edu-detail">Ann Arbor, USA</div>
+      </div>
+      <div class="edu-card fade-up">
+        <div class="edu-icon">⚡</div>
+        <div class="edu-degree">B.Tech — Electronics &amp; Communication Engineering</div>
+        <div class="edu-inst">Jawaharlal Nehru Technological University (JNTU)</div>
+        <div class="edu-detail">Graduated with Distinction · Top 5%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Let's Build Something Transformative</h2>
+    <p class="section-desc" style="margin:0 auto 0; text-align:center;">
+      Open to strategic conversations on AI product leadership, platform scale, and enterprise transformation.
+    </p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/malareddy/" target="_blank" class="contact-card">
+        <span class="contact-icon">🔗</span>
+        <div>
+          <div style="font-size:0.75rem;color:var(--muted);margin-bottom:2px;">LinkedIn</div>
+          <div>malareddy</div>
+        </div>
+      </a>
+      <a href="mailto:malavika.lakireddy@gmail.com" class="contact-card">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <div style="font-size:0.75rem;color:var(--muted);margin-bottom:2px;">Email</div>
+          <div>malavika.lakireddy@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://brandvoca.lovable.app" target="_blank" class="contact-card">
+        <span class="contact-icon">🌐</span>
+        <div>
+          <div style="font-size:0.75rem;color:var(--muted);margin-bottom:2px;">Portfolio</div>
+          <div>brandvoca.lovable.app</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Malavika Lakireddy · Global Product &amp; AI Executive</p>
+  <p style="margin-top:0.5rem;opacity:0.5;">Built for GitHub Pages · <a href="https://www.linkedin.com/in/malareddy/" style="color:var(--purple-light);text-decoration:none;">linkedin.com/in/malareddy</a></p>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
